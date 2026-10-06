@@ -30,22 +30,22 @@ export default function AdminLogin() {
     }
   }
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
-      <div className="w-full max-w-sm rounded-xl border border-slate-800 bg-slate-900 p-8 shadow-xl">
-        <div className="flex items-center gap-2 text-emerald-400">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
+      <div className="w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow-sm p-8 shadow-sm">
+        <div className="flex items-center gap-2 text-brand-600">
           <ShieldCheck className="h-6 w-6" />
-          <span className="text-xs font-semibold uppercase tracking-widest">
+          <span className="text-sm font-medium">
             Restricted access
           </span>
         </div>
-        <h1 className="mt-3 text-2xl font-bold text-white">FinTrack Admin</h1>
-        <p className="mt-1 text-sm text-slate-400">
+        <h1 className="mt-3 text-2xl font-semibold text-gray-900">FinTrack Admin</h1>
+        <p className="mt-1 text-sm text-gray-600">
           Sign in with your admin credentials to continue.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-300">
+            <label className="block text-sm font-medium text-gray-700">
               Admin email
             </label>
             <input
@@ -55,11 +55,11 @@ export default function AdminLogin() {
               autoFocus
               value={form.email}
               onChange={handleChange}
-              className="mt-1 w-full rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-300">
+            <label className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
@@ -68,19 +68,19 @@ export default function AdminLogin() {
               required
               value={form.password}
               onChange={handleChange}
-              className="mt-1 w-full rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+              className="mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-md bg-emerald-600 py-2 text-sm font-semibold text-white hover:bg-emerald-500 disabled:opacity-60"
+            className="w-full rounded-md bg-brand-600 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
-        <p className="mt-6 text-center text-xs text-slate-500">
+        <p className="mt-6 text-center text-xs text-gray-500">
           This console is separate from customer accounts.
         </p>
       </div>

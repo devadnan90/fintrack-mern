@@ -57,11 +57,11 @@ export default function AdminDashboard() {
     navigate("/admin/login");
   }
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-950 text-slate-100">
-      <aside className="flex w-56 shrink-0 flex-col border-r border-slate-800 bg-slate-900">
+    <div className="flex h-screen overflow-hidden bg-gray-50 text-gray-900">
+      <aside className="flex w-60 shrink-0 flex-col border-r border-gray-200 bg-white">
         <div className="flex items-center gap-2 px-5 py-5">
-          <ShieldCheck className="h-5 w-5 text-emerald-400" />
-          <span className="text-sm font-bold tracking-tight">
+          <ShieldCheck className="h-5 w-5 text-brand-600" />
+          <span className="text-[15px] font-semibold text-gray-900">
             FinTrack Admin
           </span>
         </div>
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
               <button
                 key={t.id}
                 onClick={() => setTab(t.id)}
-                className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${tab === t.id ? "bg-emerald-500/15 text-emerald-300" : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"}`}
+                className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${tab === t.id ? "bg-brand-50 text-brand-700" : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"}`}
               >
                 <Icon className="h-4 w-4" />
                 {t.label}
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
         </nav>
         <button
           onClick={handleLogout}
-          className="m-3 flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-red-300"
+          className="m-3 flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-red-600"
         >
           <LogOut className="h-4 w-4" /> Sign out
         </button>

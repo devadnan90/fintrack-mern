@@ -20,34 +20,34 @@ function money(paise, currency = "INR") {
 function ResultBlock({ result, error }) {
   if (error)
     return (
-      <pre className="mt-3 max-h-64 overflow-auto rounded-md bg-red-500/10 p-3 text-xs text-red-300">
+      <pre className="mt-3 max-h-64 overflow-auto rounded-md bg-red-50 p-3 text-xs text-red-700">
         {error}
       </pre>
     );
   if (result === undefined) return null;
   return (
-    <pre className="mt-3 max-h-64 overflow-auto rounded-md bg-slate-950 p-3 text-xs text-slate-300">
+    <pre className="mt-3 max-h-64 overflow-auto rounded-md bg-gray-50 p-3 text-xs text-gray-700">
       {JSON.stringify(result, null, 2)}
     </pre>
   );
 }
 function ToolCard({ icon: Icon, title, description, children }) {
   return (
-    <div className="rounded-xl border border-slate-800 bg-slate-900 p-5">
+    <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-5">
       <div className="flex items-center gap-2">
-        <Icon className="h-4 w-4 text-emerald-400" />
-        <h2 className="text-sm font-semibold text-white">{title}</h2>
+        <Icon className="h-4 w-4 text-green-700" />
+        <h2 className="text-sm font-semibold text-gray-900">{title}</h2>
       </div>
-      <p className="mt-1 text-xs text-slate-400">{description}</p>
+      <p className="mt-1 text-xs text-gray-600">{description}</p>
       <div className="mt-4">{children}</div>
     </div>
   );
 }
 function inputClass() {
-  return "w-full rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500";
+  return "w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500";
 }
 function buttonClass() {
-  return "rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-500 disabled:opacity-60";
+  return "rounded-md bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60";
 }
 function useTool(fn) {
   const [loading, setLoading] = useState(false);
@@ -125,8 +125,8 @@ export default function AdminRazorpay() {
   }, []);
   return (
     <div>
-      <h1 className="text-xl font-bold text-white">Razorpay tools</h1>
-      <p className="mt-1 text-sm text-slate-400">
+      <h1 className="text-xl font-semibold text-gray-900">Razorpay tools</h1>
+      <p className="mt-1 text-sm text-gray-600">
         {config
           ? config.enabled
             ? `Live · key ${config.keyId}`
@@ -136,27 +136,27 @@ export default function AdminRazorpay() {
 
       {summary && (
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          <div className="rounded-xl border border-slate-800 bg-slate-900 p-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+          <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
+            <p className="text-sm font-medium text-gray-600">
               Total revenue
             </p>
-            <p className="mt-1 text-lg font-semibold text-white">
+            <p className="mt-1 text-lg font-semibold text-gray-900">
               {money(summary.totalPaise, summary.currency)}
             </p>
           </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900 p-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+          <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
+            <p className="text-sm font-medium text-gray-600">
               Verified orders
             </p>
-            <p className="mt-1 text-lg font-semibold text-white">
+            <p className="mt-1 text-lg font-semibold text-gray-900">
               {summary.totalOrders}
             </p>
           </div>
-          <div className="rounded-xl border border-slate-800 bg-slate-900 p-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+          <div className="rounded-lg border border-gray-200 bg-white shadow-sm p-4">
+            <p className="text-sm font-medium text-gray-600">
               By plan
             </p>
-            <p className="mt-1 space-x-2 text-sm text-slate-300">
+            <p className="mt-1 space-x-2 text-sm text-gray-700">
               {summary.byPlan.map((p) => (
                 <span key={p.plan} className="capitalize">
                   {p.plan}: {p.orderCount}
@@ -174,7 +174,7 @@ export default function AdminRazorpay() {
           description="Currently configured plan tiers and pricing."
         >
           {config?.plans ? (
-            <div className="space-y-1 text-sm text-slate-300">
+            <div className="space-y-1 text-sm text-gray-700">
               {config.plans.map((p) => (
                 <div key={p.id} className="flex justify-between">
                   <span className="capitalize">{p.id}</span>
@@ -185,7 +185,7 @@ export default function AdminRazorpay() {
               ))}
             </div>
           ) : (
-            <p className="text-sm text-slate-500">Loading...</p>
+            <p className="text-sm text-gray-500">Loading...</p>
           )}
         </ToolCard>
 
@@ -210,25 +210,25 @@ export default function AdminRazorpay() {
           description="Every order FinTrack has created, newest first."
         >
           {ordersLoading ? (
-            <p className="text-sm text-slate-500">Loading...</p>
+            <p className="text-sm text-gray-500">Loading...</p>
           ) : orders.length === 0 ? (
-            <p className="text-sm text-slate-500">No orders yet.</p>
+            <p className="text-sm text-gray-500">No orders yet.</p>
           ) : (
             <div className="max-h-56 space-y-2 overflow-y-auto">
               {orders.map((o) => (
                 <div
                   key={o.id}
-                  className="rounded-md border border-slate-800 bg-slate-950 p-2.5 text-xs"
+                  className="rounded-md border border-gray-200 bg-gray-50 p-2.5 text-xs"
                 >
                   <div className="flex justify-between">
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-gray-900">
                       {o.user?.email || "—"}
                     </span>
-                    <span className="text-slate-400">
+                    <span className="text-gray-600">
                       {money(o.amount, o.currency)}
                     </span>
                   </div>
-                  <div className="mt-1 flex justify-between text-slate-500">
+                  <div className="mt-1 flex justify-between text-gray-500">
                     <span className="capitalize">
                       {o.plan} · {o.status}
                     </span>
@@ -436,7 +436,7 @@ export default function AdminRazorpay() {
                 );
               }}
               disabled={refundTool.loading || !refundForm.paymentId}
-              className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500 disabled:opacity-60"
+              className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-60"
             >
               Refund
             </button>
@@ -478,7 +478,7 @@ export default function AdminRazorpay() {
           {summary ? (
             <ResultBlock result={summary} />
           ) : (
-            <p className="text-sm text-slate-500">Loading...</p>
+            <p className="text-sm text-gray-500">Loading...</p>
           )}
         </ToolCard>
       </div>
