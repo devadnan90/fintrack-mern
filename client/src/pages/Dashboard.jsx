@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import {
@@ -375,12 +376,12 @@ export default function Dashboard() {
                   No budgets set yet
                 </p>
               )}
-              <a
-                href="/budgets"
+              <Link
+                to="/budgets"
                 className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-brand-600 hover:underline"
               >
                 View Budget <ArrowRight className="h-3 w-3" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -463,12 +464,12 @@ export default function Dashboard() {
               </ul>
             </div>
           )}
-          <a
-            href="/reports"
+          <Link
+            to="/reports"
             className="mt-4 flex items-center justify-center gap-1 text-sm font-medium text-brand-600 hover:underline"
           >
             View full report <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </div>
 
         <div className="rounded-xl bg-white dark:bg-gray-800 p-6 shadow-sm ring-1 ring-gray-100 dark:ring-gray-700">
@@ -557,12 +558,12 @@ export default function Dashboard() {
               </AreaChart>
             </ResponsiveContainer>
           </div>
-          <a
-            href="/reports"
+          <Link
+            to="/reports"
             className="mt-2 flex items-center justify-center gap-1 text-sm font-medium text-brand-600 hover:underline"
           >
             View full report <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -571,12 +572,12 @@ export default function Dashboard() {
           <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
             Recent Transactions
           </h2>
-          <a
-            href="/transactions"
+          <Link
+            to="/transactions"
             className="flex items-center gap-1 text-sm font-medium text-brand-600 hover:underline"
           >
             View All Transactions <ArrowRight className="h-3.5 w-3.5" />
-          </a>
+          </Link>
         </div>
 
         {recent.length === 0 ? (
